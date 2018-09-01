@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import List from './List'
+import { generateId } from '../utils/utils'
 
 export default class Todos extends Component {
   state = {
@@ -12,11 +13,15 @@ export default class Todos extends Component {
 
   handleSubmit = () => {
     const { todo } = this.state
-    todo && this.props.addTodoAction({todo})
+    todo && this.props.addTodoAction({
+      id:generateId(),
+      todo
+    })
     this.setState({todo: ''})
   }
 
   render() {
+    const { todos, removeTodoAction} = this.props
     return(
       <div>
        <input
@@ -26,7 +31,7 @@ export default class Todos extends Component {
          onChange={(e) => this.handleChange(e)}
        />
        <button onClick={this.handleSubmit}>Submit</button>
-       <List todos={this.props.todos}/>
+       <List todos={todos} removeTodoAction={removeTodoAction}/>
       </div>
     )
   }

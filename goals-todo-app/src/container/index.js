@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { addTodoAction } from './action/todos'
+import { addTodoAction, removeTodoAction } from './action/todos'
 
 function mapStateToProps(state) {
   const { todos } = state
@@ -11,7 +11,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({addTodoAction}, dispatch)
+  return bindActionCreators({addTodoAction, removeTodoAction}, dispatch)
 }
 
 const Container = connect(mapStateToProps, mapDispatchToProps)
