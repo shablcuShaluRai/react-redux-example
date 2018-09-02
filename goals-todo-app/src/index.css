@@ -4,3 +4,8 @@ body {
   padding: 0;
   text-align: center;
 }
+
+.toggle {
+  text-decoration: line-through;
+  color:green;
+}

@@ -1,17 +1,16 @@
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { addTodoAction, removeTodoAction } from './action/todos'
+import { addTodoAction, removeTodoAction, toggleTodo } from './action/todos'
 
 function mapStateToProps(state) {
   const { todos } = state
-  console.log(todos);
   return {
     todos
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({addTodoAction, removeTodoAction}, dispatch)
+  return bindActionCreators({addTodoAction, removeTodoAction, toggleTodo}, dispatch)
 }
 
 const Container = connect(mapStateToProps, mapDispatchToProps)

@@ -15,13 +15,14 @@ export default class Todos extends Component {
     const { todo } = this.state
     todo && this.props.addTodoAction({
       id:generateId(),
+      complete: false,
       todo
     })
     this.setState({todo: ''})
   }
 
   render() {
-    const { todos, removeTodoAction} = this.props
+    const { todos, removeTodoAction, toggleTodo} = this.props
     return(
       <div>
        <input
@@ -30,8 +31,16 @@ export default class Todos extends Component {
          value={this.state.todo}
          onChange={(e) => this.handleChange(e)}
        />
-       <button onClick={this.handleSubmit}>Submit</button>
-       <List todos={todos} removeTodoAction={removeTodoAction}/>
+       <button
+        onClick={this.handleSubmit}
+        >
+        Submit
+      </button>
+       <List
+         todos={todos}
+         removeTodoAction={removeTodoAction}
+         toggleTodo={toggleTodo}
+       />
       </div>
     )
   }

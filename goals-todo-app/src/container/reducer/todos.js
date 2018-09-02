@@ -7,6 +7,9 @@ function todos(state=[], action) {
       return state.concat([action.todo])
     case actions.REMOVE_TODO:
       return state.filter(todo => todo.id !== action.id)
+    case actions.TOGGLE_TODO :
+      return state.map((todo) => todo.id !== action.id ? todo :
+        Object.assign({}, todo, { complete: !todo.complete }))
     default:
      return state
   }
