@@ -1,15 +1,15 @@
 import React from "react"
-export default function List({ todos, removeTodoAction, toggleTodo}){
+export default function List({list, removeBtnClick, toggleitem}){
  return (
    <div>
-     {todos.map((todos) =>
-        <li key={todos.id}>
+     {list.map((item) =>
+        <li key={item.id}>
           <span
-            className={todos.complete ? "toggle" : "none"}
-            onClick={() => toggleTodo && toggleTodo(todos.id)}>
-         {todos.todo}
+            className={item.complete ? "toggle" : "none"}
+            onClick={() => toggleitem && toggleitem(item.id)}>
+         {item.todo ||  item.goals}
        </span>
-         <button onClick={() => removeTodoAction(todos.id)}>X</button>
+         <button onClick={() => removeBtnClick(item.id)}>X</button>
         </li>)}
    </div>
  )
