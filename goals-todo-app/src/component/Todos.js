@@ -27,7 +27,7 @@ export default class Todos extends Component {
       <div>
        <input
          type="text"
-         placeholder="Add TODO"
+         placeholder="ADD TODO"
          value={this.state.todo}
          onChange={(e) => this.handleChange(e)}
        />
@@ -37,11 +37,11 @@ export default class Todos extends Component {
         Submit
       </button>
        <List
-         todos={todos}
-         removeTodoAction={removeTodoAction}
-         toggleTodo={toggleTodo}
+         list={todos}
+         removeBtnClick={removeTodoAction}
+         toggleitem={toggleTodo}
        />
-      </div>
+     </div>
     )
   }
 }
